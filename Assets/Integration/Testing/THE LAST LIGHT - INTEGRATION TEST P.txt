@@ -1,0 +1,16 @@
+THE LAST LIGHT - INTEGRATION TEST PLAN
+
+Feature:
+Developer:
+Date Tested:
+
+TEST STEPS:
+1.
+2.
+3.
+
+EXPECTED RESULT:
+
+ACTUAL RESULT:
+
+STATUS: Not Tested
