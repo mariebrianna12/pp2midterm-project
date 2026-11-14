@@ -1,16 +1,288 @@
-THE LAST LIGHT - INTEGRATION TEST PLAN
+THE LAST LIGHT - FIRST PLAYABLE INTEGRATION TEST PLAN
 
-Feature:
-Developer:
-Date Tested:
+1. PURPOSE
 
-TEST STEPS:
-1.
-2.
-3.
+The purpose of this document is to track the testing and integration of all gameplay features for The Last Light First Playable milestone.
+Each feature should be tested in its individual sandbox scene before being integrated into the shared MainLevel scene.
 
-EXPECTED RESULT:
+2. INTEGRATION WORKFLOW
 
-ACTUAL RESULT:
+1. Receive the feature from the assigned teammate.
+2. Review the scripts, prefabs, and required assets.
+3. Open the feature in its sandbox scene.
+4. Test the feature independently.
+5. Record the test results.
+6. Fix any issues before integration.
+7. Integrate the approved feature into MainLevel.
+8. Test the feature with the other integrated systems.
+9. Commit and push approved changes to GitHub.
 
-STATUS: Not Tested
+3. FEATURE INTEGRATION TRACKER
+
+All features begin with the status NOT TESTED.
+
+PLAYER AND ENEMY SYSTEMS
+
+1. WASD Player Movement
+
+* Assigned: AS
+* Test Status: Not Tested
+* Expected result: Player moves correctly using WASD controls.
+* Actual result:
+* Issues:
+
+2. Shadow Creature AI and Safe Zones
+
+* Assigned: AS
+* Test Status: Not Tested
+* Expected result:Shadow creature AI interacts correctly with safe zones.
+* Actual Result:
+* Issues:
+
+3. Enter Safe Zones
+
+* Assigned: AS
+* Test Status: Not Tested
+* Expected result: Player can enter designated safe zones.
+* Actual result:
+* Issues:
+
+4. Player Respawning and Progress Preservation
+
+* Assigned: AS
+* Test status: Not Tested
+* Expected result: Player respawns correctly and required progress is preserved.
+* Actual result:
+* Issues:
+
+5. Shadow Creature Pursuit
+
+* Assigned: AS
+* Test Status: Not Tested
+* Expected result: Shadow creature pusues the player correctly.
+* Actual result:
+* Issues:
+
+6. Hidden Safe Zones
+
+* Assigned: AS
+* Status: Not Tested
+* Expected result: Hidden safe zones function as intended.
+* Actual result:
+* Issues:
+
+7. Player Lives Counter
+
+Assigned: AS
+Status: Not Tested
+Expected Result: Player life count updates correctly.
+Actual Result:
+Issues:
+
+ORB AND SHRINE SYSTEMS
+
+8. Collect Glowing Orbs
+
+Assigned: BS
+Status: Not Tested
+Expected Result: Player can collect glowing orbs.
+Actual Result:
+Issues:
+
+9. Interact with Shrines
+
+Assigned: BS
+Status: Not Tested
+Expected Result: Player can interact with shrines.
+Actual Result:
+Issues:
+
+10. Central Shrine Activation and Forest Exit
+
+Assigned: BS
+Status: Not Tested
+Expected Result: Central shrine activates and the forest exit functions correctly.
+Actual Result:
+Issues:
+
+11. Shrine 1 – Symbol Matching Puzzle
+
+Assigned: BS
+Status: Not Tested
+Expected Result: Symbol matching puzzle functions correctly.
+Actual Result:
+Issues:
+
+12. Orb Collection Counter
+
+Assigned: BS
+Status: Not Tested
+Expected Result: Orb counter updates when glowing orbs are collected.
+Actual Result:
+Issues:
+
+LANTERN AND CAMERA SYSTEMS
+
+13. Lantern Lighting System
+
+Assigned: RD
+Status: Not Tested
+Expected Result: Lantern produces the intended lighting effect.
+Actual Result:
+Issues:
+
+14. Camera Follow and Map Boundaries
+
+Assigned: RD
+Status: Not Tested
+Expected Result: Camera follows the player and stays within level boundaries.
+Actual Result:
+Issues:
+
+15. Lantern Charge Indicator
+
+Assigned: RD
+Status: Not Tested
+Expected Result: Lantern charge indicator updates correctly.
+Actual Result:
+Issues:
+
+LEVEL DESIGN
+
+16. Level X Blockout
+
+Assigned: Not Shown
+Status: Not Tested
+Expected Result: Level X blockout is created and functions as intended.
+Actual Result:
+Issues:
+
+17. Level X Enemy, Item, Interactive Object Placement
+
+Assigned: Not Shown
+Status: Not Tested
+Expected Result: Enemies, items, and interactive objects are placed correctly.
+Actual Result:
+Issues:
+
+18. Forest Level Creation and Layout
+
+Assigned: BS
+Status: Not Tested
+Expected Result: Forest level layout is created and supports gameplay.
+Actual Result:
+Issues:
+
+UI AND GAME FLOW
+
+19. Interaction Prompt System
+
+Assigned: RD
+Status: Not Tested
+Expected Result: Interaction prompts appear when the player can interact with objects.
+Actual Result:
+Issues:
+
+20. Victory Screen
+
+Assigned: RD
+Status: Not Tested
+Expected Result: Victory screen appears when the player completes the game objective.
+Actual Result:
+Issues:
+
+21. Game Over Screen
+
+Assigned: RD
+Status: Not Tested
+Expected Result: Game Over screen appears when the player loses.
+Actual Result:
+Issues:
+
+22. Main Menu
+
+Assigned: AS
+Status: Not Tested
+Expected Result: Main menu displays and its buttons function correctly.
+Actual Result:
+Issues:
+
+PROJECT INTEGRATION
+
+23. First Playable Integration
+
+Assigned: RD
+Status: In Progress
+Expected Result: All completed gameplay systems are integrated into one playable project and work together.
+Actual Result:
+Issues:
+
+4. INTEGRATION TESTING RECORD
+
+For every feature tested, record:
+
+Feature name:
+
+Assigned teammate:
+
+Sandbox scene:
+
+Scripts and assets received:
+
+Test steps:
+
+Expected result:
+
+Actual result:
+
+Test status: Not Tested / Passed / Failed
+
+Issues discovered:
+
+Integrated into MainLevel: Yes / No
+
+5. FINAL INTEGRATION VERIFICATION
+
+All 23 backlog items accounted for.
+
+All required feature assets and scripts received.
+
+Individual features tested in sandbox scenes.
+
+Approved features integrated into MainLevel.
+
+Player movement and camera work together.
+
+Lantern lighting and charge systems work together.
+
+Orb collection and counter work together.
+
+Shrine interactions and activation work correctly.
+
+Enemy AI and safe zones work correctly.
+
+Player damage, lives, and respawning work correctly.
+
+Interaction prompts work correctly.
+
+Victory and Game Over conditions work correctly.
+
+Main menu works correctly.
+
+Complete gameplay loop tested.
+
+No blocking errors in Unity Console.
+
+Integrated project committed and pushed to GitHub.
+
+Final playable build tested.
+
+6. NOTES
+
+Features must be tested in their individual sandbox scenes before being integrated into shared scenes.
+
+Only one teammate should modify a shared scene at a time.
+
+All approved features must be tested together before the First Playable milestone is considered complete.
+
+Test results must reflect actual testing. Features that have not been received or tested must remain marked NOT TESTED.
