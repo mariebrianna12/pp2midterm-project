@@ -410,6 +410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 826460710}
   - component: {fileID: 826460711}
+  - component: {fileID: 826460712}
   m_Layer: 0
   m_Name: Lantern_Light_2D
   m_TagString: Untagged
@@ -425,13 +426,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826460709}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 742109008}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &826460711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,15 +446,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
   m_ComponentVersion: 4
-  m_LightType: 1
+  m_LightType: 3
   m_BlendStyleIndex: 0
   m_Light2DProvider:
     rid: -2
   m_SelectionSources:
     rid: 3781895927071506513
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.8
   m_Color: {r: 1, g: 0.78431374, b: 0.23921569, a: 1}
-  m_Intensity: 1.5
+  m_Intensity: 0.8
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 5715cba8i
@@ -475,50 +476,50 @@ MonoBehaviour:
     serializedVersion: 0
     m_Bits: 1
   m_LocalBounds:
-    m_Center: {x: 0.06784999, y: -0.064800024, z: 0}
-    m_Extent: {x: 1.28495, y: 1.3246, z: 0}
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 35
+  m_PointLightOuterAngle: 60
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1
+  m_PointLightOuterRadius: 5
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffSize: 0.8
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: 0.67205614, y: -0.5520767, z: 0}
-  - {x: 0.8533633, y: 0.16148481, z: 0}
-  - {x: 0.6537586, y: 0.4044735, z: 0}
-  - {x: 0.79988927, y: -0.04191366, z: 0}
-  - {x: 0.73719114, y: 0.48143265, z: 0}
-  - {x: 0.469604, y: 0.6075537, z: 0}
-  - {x: 0.25541046, y: 0.7393991, z: 0}
-  - {x: 0.09754512, y: 0.49039266, z: 0}
-  - {x: 0.08538203, y: 0.62826705, z: 0}
-  - {x: -0.182798, y: 0.63958514, z: 0}
-  - {x: -0.19134176, y: 0.7609706, z: 0}
-  - {x: -0.6187965, y: 0.437048, z: 0}
-  - {x: -0.6519384, y: 0.31092697, z: 0}
-  - {x: -0.45836124, y: 0.5974833, z: 0}
-  - {x: -0.7176983, y: -0.043103963, z: 0}
-  - {x: -0.6829869, y: 0.012292653, z: 0}
-  - {x: -0.6077289, y: -0.2560173, z: 0}
-  - {x: -0.6184011, y: -0.58774936, z: 0}
-  - {x: -0.35653663, y: -0.49024275, z: 0}
-  - {x: -0.39442152, y: -0.8745557, z: 0}
-  - {x: -0.3322401, y: -0.8437573, z: 0}
-  - {x: -0.15119794, y: -0.779997, z: 0}
-  - {x: -0.25553963, y: -0.88859224, z: 0}
-  - {x: -0.09754519, y: -0.85271776, z: 0}
-  - {x: 0.1706349, y: -0.8629706, z: 0}
-  - {x: 0.2893641, y: -0.81009066, z: 0}
-  - {x: 0.5543126, y: -0.7396586, z: 0}
-  - {x: 0.4909173, y: -0.6075529, z: 0}
-  - {x: 0.7592798, y: -0.41762266, z: 0}
-  - {x: 0.694874, y: -0.6404979, z: 0}
-  - {x: 0.67507184, y: -0.6176059, z: 0}
-  - {x: 0.5972171, y: 0.5634228, z: 0}
+  - {x: 1.0722977, y: -0.1720815, z: 0}
+  - {x: 1.1111534, y: 0.16091004, z: 0}
+  - {x: 0.8655343, y: 0.9324441, z: 0}
+  - {x: 1.1898162, y: -0.042296857, z: 0}
+  - {x: 1.1097465, y: 0.263941, z: 0}
+  - {x: 0.4627384, y: 0.99575615, z: 0}
+  - {x: 0.3419153, y: 0.94964194, z: 0}
+  - {x: 0.5957228, y: 0.79078066, z: 0}
+  - {x: 0.53352165, y: 1.0094122, z: 0}
+  - {x: 0.5019288, y: 1.0669365, z: 0}
+  - {x: 0.48878697, y: -0.6491333, z: 0}
+  - {x: -0.47848535, y: 0.68736637, z: 0}
+  - {x: -0.42646325, y: -1.4801303, z: 0}
+  - {x: 0.56334853, y: 0.21541187, z: 0}
+  - {x: 0.4071213, y: -0.7058611, z: 0}
+  - {x: -1.3262972, y: -0.4308975, z: 0}
+  - {x: -1.3457507, y: -0.92548, z: 0}
+  - {x: -1.4119854, y: -0.39510098, z: 0}
+  - {x: -1.0017266, y: -1.1173519, z: 0}
+  - {x: -0.59237754, y: -1.2044824, z: 0}
+  - {x: 0.09759642, y: -1.2983229, z: 0}
+  - {x: 0.5171472, y: -1.3232628, z: 0}
+  - {x: 0.73438036, y: -1.2230029, z: 0}
+  - {x: 0.9397153, y: -1.139535, z: 0}
+  - {x: 0.8007891, y: -1.034831, z: 0}
+  - {x: 1.3287002, y: -0.8876221, z: 0}
+  - {x: 0.9362244, y: -0.8446846, z: 0}
+  - {x: 0.9388966, y: -0.9411508, z: 0}
+  - {x: 1.3819624, y: -0.38134733, z: 0}
+  - {x: 1.430597, y: -0.649088, z: 0}
+  - {x: 1.2515482, y: -0.6386173, z: 0}
+  - {x: 0.62930894, y: 0.9119011, z: 0}
   references:
     version: 2
     RefIds:
@@ -527,15 +528,38 @@ MonoBehaviour:
     - rid: 3781895927071506513
       type: {class: Light2DProviderSources, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data:
-        m_SelectedHashCode: 1
+        m_SelectedHashCode: 3
         m_SelectedSource:
-          rid: -2
+          rid: 3781895927071506515
         m_Provider2DCache:
           rid: 3781895927071506514
     - rid: 3781895927071506514
       type: {class: 'Provider2DCache`1[[UnityEngine.Rendering.Universal.Light2DProvider, Unity.RenderPipelines.Universal.2D.Runtime]]', ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data:
         m_Cache: []
+    - rid: 3781895927071506515
+      type: {class: Light2DSource_BuiltIn, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data:
+        m_HashCode: 4
+        m_SourceType: 3
+        m_MenuPriority: 0
+        m_MenuName:
+          m_Text: Spot
+          m_Image: {fileID: 2800000, guid: 6eaa9958d83ec43499e946a21edba283, type: 3}
+          m_Tooltip: 
+          m_TextWithWhitespace: "Spot\u200B"
+--- !u!114 &826460712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826460709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b01b15cb1aac4a499ee4b163b422ecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LanternLightDirection
 --- !u!1 &830623338
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,7 +784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1189171848
 Transform:
   m_ObjectHideFlags: 0
