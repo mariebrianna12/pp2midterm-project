@@ -11,7 +11,10 @@ public class ShrineInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(playerInRange && Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Shrine interaction activated!");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
