@@ -2,34 +2,33 @@ using UnityEngine;
 
 public class Shrine1SymbolPuzzle : MonoBehaviour
 {
-    // Correct order: B, A, C
-    private readonly int[] correctSequence = { 1, 0, 2 };
+    [SerializeField] private SymbolStoneInteraction[] stones;
+    [SerializeField] private GameObject shrineOrb;
+    private readonly int[] targetPattern = { 1, 2, 0 };
 
-    private int currentStep = 0;
     private bool puzzleCompleted = false;
 
-    public void SelectSymbol(int symbolIndex)
+    private void Update()
     {
-        if (puzzleCompleted)
+        if(puzzleCompleted || stones == null || stones.Length != targetPattern.Length)
         {
             return;
         }
 
-        if (symbolIndex == correctSequence[currentStep])
+        for(int i = 0; i < stones.Length; i++)
         {
-            currentStep++;
-            Debug.Log("Correct symbol!");
-
-            if (currentStep == correctSequence.Length)
+            if (stones[i] == null || stones[i].CurrentSymbol != targetPattern[i])
             {
-                puzzleCompleted = true;
-                Debug.Log("Shrine 1 puzzle completed! Orb unlocked.");
+                return;
             }
         }
-        else
+        puzzleCompleted = true;
+
+        if(shrineOrb != null)
         {
-            currentStep = 0;
-            Debug.Log("Incorrect symbol! Sequence reset.");
+            shrineOrb.SetActive(true);
         }
+
+        Debug.Log("Shrine 1puzzle completed! Orb Unlocked.");
     }
 }
