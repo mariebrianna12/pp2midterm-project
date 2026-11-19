@@ -16,10 +16,24 @@ public class OrbCollection : MonoBehaviour
 
     private void CollectOrb()
     {
+        if(collected)
+        {
+            return;
+        }
+
+        if(OrbCollectionManager.Instance == null)
+        {
+            Debug.LogError("OrbCollectionManager is missing!");
+            return;
+        }
+
+        if(!OrbCollectionManager.Instance.TryCollectOrb())
+        {
+            return;
+        }
+
         collected = true;
-
         Debug.Log("Flowing orb collected!");
-
         gameObject.SetActive(false);
     }
 
