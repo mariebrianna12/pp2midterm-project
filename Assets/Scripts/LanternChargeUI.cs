@@ -1,14 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class LanternChargeUI : MonoBehaviour
 {
-    // Reference to the UI image that displays the lantern's charge.
     [Header("Lantern Charge Settings")]
     [SerializeField] private Image chargeFill;
+    [SerializeField] private LanternLightDirection lanternController;
 
-    // Colors used to show the lantern's current charge level.
     [Header("Charge Colors")]
     [SerializeField]
     private Color fullChargeColor =
@@ -20,93 +18,88 @@ public class LanternChargeUI : MonoBehaviour
 
     [SerializeField] private Color depletedColor = Color.gray;
 
-    // Maximum lantern charge and the point where the low-charge warning begins.
     [Header("Charge Levels")]
     [SerializeField] private float maxCharge = 100f;
     [SerializeField] private float lowChargeThreshold = 25f;
 
-    // Stores the lantern's current charge.
+    [Header("Drain Settings")]
+    [SerializeField] private float drainRate = 1f;
+
     private float currentCharge = 100f;
 
-    // Runs once when the game starts.
+    public float CurrentCharge => currentCharge;
+
     private void Start()
     {
-        // Check that the charge fill image is assigned in the Inspector.
-        if (chargeFill == null)
+        if (chargeFill == null || lanternController == null)
         {
-            Debug.LogError("Lantern Charge UI: Charge Fill is not assigned!");
+            Debug.LogError(
+                "Lantern Charge UI: Assign the Charge Fill and Lantern Controller!"
+            );
             enabled = false;
             return;
         }
 
-        // Make sure the maximum charge is greater than zero.
-        if (maxCharge <= 0f)
+        if (maxCharge <= 0f || drainRate < 0f)
         {
-            Debug.LogError("Lantern Charge UI: Max Charge must be greater than zero!");
+            Debug.LogError("Invalid lantern charge settings!");
             enabled = false;
             return;
         }
 
-        // Display the initial full-charge state.
+        currentCharge = maxCharge;
         UpdateChargeUI();
     }
 
-    // Checks for keyboard input during testing.
     private void Update()
     {
-        // Press 1 to test full charge.
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            SetCharge(100f);
+        // Drain charge while the lantern is on.
+        if (lanternController.IsLanternOn && currentCharge > 0f)
+        {
+            currentCharge -= drainRate * Time.deltaTime;
+            currentCharge = Mathf.Clamp(currentCharge, 0f, maxCharge);
 
-        // Press 2 to test half charge.
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            SetCharge(50f);
+            UpdateChargeUI();
 
-        // Press 3 to test low charge.
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-            SetCharge(20f);
-
-        // Press 4 to test depleted charge.
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-            SetCharge(0f);
+            // Turn off the lantern when charge reaches zero.
+            if (currentCharge <= 0f)
+            {
+                lanternController.TurnOffLantern();
+                Debug.Log("Lantern charge depleted!");
+            }
+        }
     }
 
-    // Changes the current charge and updates the UI.
+    // Allows other gameplay systems to change lantern charge.
     public void SetCharge(float charge)
     {
-        // Keeps the charge between zero and the maximum value.
         currentCharge = Mathf.Clamp(charge, 0f, maxCharge);
+        UpdateChargeUI();
 
-        // Displays the current charge in the Unity Console.
         Debug.Log("Lantern charge: " + currentCharge);
 
-        // Refreshes the charge bar.
-        UpdateChargeUI();
+        if (currentCharge <= 0f && lanternController.IsLanternOn)
+        {
+            lanternController.TurnOffLantern();
+        }
     }
 
-    // Updates the fill amount and color of the charge indicator.
     private void UpdateChargeUI()
     {
-        // Converts the current charge into a percentage.
         float chargePercentage = currentCharge / maxCharge;
 
-        // Updates how much of the charge bar is filled.
         chargeFill.fillAmount = chargePercentage;
 
-        // Changes the bar color based on the remaining charge.
         if (currentCharge <= 0f)
         {
-            // Gray indicates that the lantern is depleted.
             chargeFill.color = depletedColor;
         }
         else if (currentCharge <= lowChargeThreshold)
         {
-            // Orange warns the player that charge is running low.
             chargeFill.color = lowChargeColor;
         }
         else
         {
-            // Golden yellow indicates normal charge.
             chargeFill.color = fullChargeColor;
         }
     }

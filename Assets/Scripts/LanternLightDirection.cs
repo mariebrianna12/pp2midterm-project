@@ -2,35 +2,67 @@ using UnityEngine;
 
 public class LanternLightDirection : MonoBehaviour
 {
-    // Update runs once every frame while the game is playing.
-    void Update()
+    [Header("Lantern Settings")]
+    [SerializeField] private GameObject lanternLight;
+    [SerializeField] private LanternChargeUI chargeUI;
+    [SerializeField] private KeyCode toggleKey = KeyCode.F;
+
+    private bool lanternIsOn = true;
+
+    public bool IsLanternOn => lanternIsOn;
+
+    private void Start()
     {
-        // Check if the player presses W.
-        // Rotate the lantern light upward.
+        if (lanternLight == null || chargeUI == null)
+        {
+            Debug.LogError("Assign the Lantern Light and Charge UI!");
+            enabled = false;
+            return;
+        }
+
+        lanternLight.SetActive(true);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(toggleKey))
+        {
+            ToggleLantern();
+        }
+
         if (Input.GetKeyDown(KeyCode.W))
-        {
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-        }
+            lanternLight.transform.localRotation = Quaternion.Euler(0, 0, 0);
 
-        // Check if the player presses S.
-        // Rotate the lantern light downward.
         if (Input.GetKeyDown(KeyCode.S))
-        {
-            transform.localRotation = Quaternion.Euler(0, 0, 180);
-        }
+            lanternLight.transform.localRotation = Quaternion.Euler(0, 0, 180);
 
-        // Check if the player presses A.
-        // Rotate the lantern light to the left.
         if (Input.GetKeyDown(KeyCode.A))
+            lanternLight.transform.localRotation = Quaternion.Euler(0, 0, 90);
+
+        if (Input.GetKeyDown(KeyCode.D))
+            lanternLight.transform.localRotation = Quaternion.Euler(0, 0, 270);
+    }
+
+    public void ToggleLantern()
+    {
+        // Prevent the lantern from turning on with zero charge.
+        if (!lanternIsOn && chargeUI.CurrentCharge <= 0f)
         {
-            transform.localRotation = Quaternion.Euler(0, 0, 90);
+            Debug.Log("Cannot turn on lantern: No charge remaining!");
+            return;
         }
 
-        // Check if the player presses D.
-        // Rotate the lantern light to the right.
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            transform.localRotation = Quaternion.Euler(0, 0, 270);
-        }
+        lanternIsOn = !lanternIsOn;
+        lanternLight.SetActive(lanternIsOn);
+
+        Debug.Log("Lantern is " + (lanternIsOn ? "ON" : "OFF"));
+    }
+
+    public void TurnOffLantern()
+    {
+        lanternIsOn = false;
+        lanternLight.SetActive(false);
+
+        Debug.Log("Lantern turned off.");
     }
 }

@@ -907,8 +907,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -230}
+  m_SizeDelta: {x: 250, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &630644493
 MonoBehaviour:
@@ -1153,6 +1153,7 @@ GameObject:
   - component: {fileID: 742109007}
   - component: {fileID: 742109009}
   - component: {fileID: 742109010}
+  - component: {fileID: 742109011}
   m_Layer: 0
   m_Name: Temporary_Player
   m_TagString: Player
@@ -1310,6 +1311,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &742109011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742109006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b01b15cb1aac4a499ee4b163b422ecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LanternLightDirection
+  lanternLight: {fileID: 826460709}
+  chargeUI: {fileID: 1979032796}
+  toggleKey: 102
 --- !u!1 &826460709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,7 +1336,6 @@ GameObject:
   m_Component:
   - component: {fileID: 826460710}
   - component: {fileID: 826460711}
-  - component: {fileID: 826460712}
   m_Layer: 0
   m_Name: Lantern_Light_2D
   m_TagString: Untagged
@@ -1458,18 +1473,6 @@ MonoBehaviour:
           m_Image: {fileID: 2800000, guid: 6eaa9958d83ec43499e946a21edba283, type: 3}
           m_Tooltip: 
           m_TextWithWhitespace: "Spot\u200B"
---- !u!114 &826460712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 826460709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b01b15cb1aac4a499ee4b163b422ecf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LanternLightDirection
 --- !u!1 &830623338
 GameObject:
   m_ObjectHideFlags: 0
@@ -3203,11 +3206,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LanternChargeUI
   chargeFill: {fileID: 1667462024}
+  lanternController: {fileID: 742109011}
   fullChargeColor: {r: 1, g: 0.78, b: 0.24, a: 1}
   lowChargeColor: {r: 1, g: 0.4, b: 0.1, a: 1}
   depletedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   maxCharge: 100
   lowChargeThreshold: 25
+  drainRate: 1
 --- !u!1 &2129175738
 GameObject:
   m_ObjectHideFlags: 0
