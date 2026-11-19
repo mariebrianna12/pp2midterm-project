@@ -46,6 +46,17 @@ public class EnemyController : MonoBehaviour
             return;
         }
 
+        // Get the PlayerMovement script
+        PlayerMovement playerScript =
+            player.GetComponent<PlayerMovement>();
+
+        // If the player is inside a SafeZone stop
+        
+        if (playerScript != null && playerScript.isSafe)
+        {
+            return;
+        }
+
         // Calculate distance between enemy and player
         float distance =
             Vector2.Distance(transform.position, player.position);
@@ -73,7 +84,7 @@ public class EnemyController : MonoBehaviour
             other.GetComponent<PlayerMovement>();
 
         // Damage the player if found
-        if (playerScript != null)
+        if (playerScript != null && !playerScript.isSafe)
         {
             playerScript.ChangeHealth(-1);
         }

@@ -9,8 +9,10 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 movement;
 
-    //New Health system add on 
+    // Tracker whether the player is currently insaide a safezone
+    public bool isSafe = false;
 
+    //New Health system add on 
     // Maxium amount of health the player can have
     public int maxHealth = 3;
 
